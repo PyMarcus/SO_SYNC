@@ -3,10 +3,6 @@ from time import sleep
 from colorama import Fore
 
 
-counter: int = 0
-sem: Semaphore = Semaphore(1)
-
-
 class Process(Thread):
     """
      OBJECTIVE: use 10 threads in semaphores.
@@ -35,7 +31,8 @@ class Process(Thread):
 
 
 if __name__ == '__main__':
-
+    counter: int = 0
+    sem: Semaphore = Semaphore()
     process = [Process(num) for num in range(10)]  # create 10 threads
     [proc_instace.start() for proc_instace in process]  # initialize the 10 threads
 
